@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo e Pedidos Friboi | Download Oficial Android</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white">
+
+    <header class="bg-white border-b border-slate-200 py-4 px-6 md:px-12 flex justify-between items-center sticky top-0 z-50 shadow-sm">
+        <div class="flex items-center space-x-3">
+            <img src="https://www.friboionline.com.br/ccstore/v1/images/?source=/file/general/friboi-logo.png&height=33&width=75" alt="Logo Friboi" class="h-8 object-contain">
+            <span class="text-xs font-mono uppercase bg-emerald-50 text-emerald-700 border border-emerald-200 px-2.5 py-1 rounded-full font-semibold">App Oficial B2B (Android)</span>
+        </div>
+        <div class="hidden sm:flex items-center space-x-2 text-xs text-slate-600 font-medium">
+            <i class="fa-solid fa-shield-halved text-emerald-600 text-sm"></i>
+            <span>Ambiente 100% Seguro & Verificado</span>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-4 sm:p-6 md:p-10">
+        <div class="w-full max-w-4xl bg-white border border-slate-200 rounded-2xl shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-12">
+            
+            <!-- Coluna Esquerda: Informações e Destaques -->
+            <div class="md:col-span-5 p-6 md:p-8 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 text-white flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800">
+                <div class="space-y-6">
+                    <!-- Foto da caixa vermelha oficial -->
+                    <div class="w-20 h-20 bg-slate-800/80 border border-slate-700 rounded-2xl flex items-center justify-center overflow-hidden shadow-lg p-2">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9FEz7S_1AjcoYC0FFeriXKlexBXYxGq5WFYwxUY9G0w&s=10" alt="Cortes Friboi B2B" class="w-full h-full object-cover rounded-xl">
+                    </div>
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-extrabold tracking-tight text-white">Catálogo e Pedidos Friboi</h1>
+                        <p class="text-xs text-emerald-400 font-semibold mt-1">Versão Corporativa 3.4.2 (APK Android)</p>
+                    </div>
+                    <p class="text-sm text-slate-300 leading-relaxed">
+                        Faça pedidos de cortes nobres direto pelo aplicativo, acompanhe lotes em tempo real e gerencie sua meta operacional com total agilidade.
+                    </p>
+
+                    <div class="space-y-3 pt-2">
+                        <div class="flex items-center space-x-3 text-xs text-slate-300">
+                            <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+                            <span>Tabela de preços exclusiva atrelada ao CNPJ</span>
+                        </div>
+                        <div class="flex items-center space-x-3 text-xs text-slate-300">
+                            <i class="fa-solid fa-circle-check text-emerald-400 text-base"></i>
+                            <span>Notificações automáticas de entrega</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6 mt-6 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+                    <span>Tamanho: 24.8 MB</span>
+                    <span>Android 8.0+</span>
+                </div>
+            </div>
+
+            <!-- Coluna Direita: Central de Download Inteligente & Guia Dinâmico (Botão mais acima) -->
+            <div class="md:col-span-7 p-6 md:p-8 flex flex-col justify-between space-y-6 bg-slate-50/50">
+                
+                <div class="space-y-4">
+                    <div class="border-b border-slate-200 pb-3">
+                        <h2 class="text-lg font-bold text-slate-900 flex items-center space-x-2">
+                            <i class="fa-solid fa-cloud-arrow-down text-blue-600"></i>
+                            <span>Instalador Automático APK</span>
+                        </h2>
+                        <p class="text-xs text-slate-600 mt-1">Clique no botão de alta prioridade abaixo para iniciar o download instantâneo.</p>
+                    </div>
+
+                    <!-- Botão de Download Principal reposicionado bem acima -->
+                    <button onclick="iniciarDownloadInteligente()" id="btnDownload" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold py-4 px-6 rounded-xl transition text-base shadow-lg shadow-emerald-600/20 uppercase tracking-wider flex items-center justify-center space-x-3 cursor-pointer group">
+                        <i class="fa-solid fa-download text-xl group-hover:translate-y-0.5 transition-transform"></i>
+                        <span>Baixar Aplicativo Friboi (.APK)</span>
+                    </button>
+
+                    <!-- Barra de Progresso Animada -->
+                    <div id="progressoBox" class="hidden space-y-2 bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+                        <div class="flex justify-between text-xs">
+                            <span id="statusDownloadTexto" class="font-semibold text-slate-700">Baixando APK do servidor seguro...</span>
+                            <span id="porcentagemTexto" class="font-bold text-emerald-600">0%</span>
+                        </div>
+                        <div class="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
+                            <div id="barraProgresso" class="bg-emerald-600 h-full transition-all duration-300 w-0"></div>
+                        </div>
+                    </div>
+
+                    <!-- ABA INTELIGENTE EXPANDIDA DENTRO DA MESMA TELA -->
+                    <div id="guiaExpandido" class="hidden bg-white border-2 border-emerald-500 rounded-xl p-5 space-y-4 shadow-xl animate-fade-in">
+                        <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                            <h3 class="text-sm font-bold text-slate-900 flex items-center space-x-2">
+                                <i class="fa-solid fa-circle-exclamation text-amber-500 text-lg"></i>
+                                <span class="text-emerald-800 font-extrabold">Download Concluído! Onde apertar agora:</span>
+                            </h3>
+                            <span class="text-[10px] bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded border border-emerald-200 font-mono">Guia Android</span>
+                        </div>
+
+                        <div class="space-y-3 text-xs text-slate-700">
+                            <div class="flex items-start space-x-3 bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                <div class="w-5 h-5 bg-emerald-600 text-white font-bold rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-[11px]">1</div>
+                                <div>
+                                    <span class="font-bold text-slate-900 block">Olhe na barra de notificações ou pop-up do navegador:</span>
+                                    O arquivo <span class="font-mono text-emerald-700 font-semibold">friboi-catalogo.apk</span> foi baixado. Se aparecer o aviso de segurança padrão do Android, clique em <strong class="text-slate-900 underline">"Fazer o download mesmo"</strong>.
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3 bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                <div class="w-5 h-5 bg-emerald-600 text-white font-bold rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-[11px]">2</div>
+                                <div>
+                                    <span class="font-bold text-slate-900 block">Toque em "ABRIR":</span>
+                                    Assim que concluir, clique em <strong class="text-slate-900 underline">ABRIR</strong> na notificação flutuante do Chrome.
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-3 bg-slate-50 p-3 rounded-lg border border-slate-200">
+                                <div class="w-5 h-5 bg-emerald-600 text-white font-bold rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 text-[11px]">3</div>
+                                <div>
+                                    <span class="font-bold text-slate-900 block">Permitir instalação e Concluir:</span>
+                                    Se solicitado, ative a chave <span class="text-slate-900 font-semibold">"Permitir desta fonte"</span> nas configurações e clique em <strong class="text-emerald-700 font-bold">INSTALAR</strong>.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pt-1">
+                            <a href="https://wa.me/5511954802338?text=Olá,%20estou%20tentando%20instalar%20o%20APK%20do%20Catálogo%20e%20Pedidos%20Friboi%20mas%20preciso%20de%20ajuda." target="_blank" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-3 px-4 rounded-lg transition uppercase tracking-wider flex items-center justify-center space-x-2 shadow-md">
+                                <i class="fa-brands fa-whatsapp text-base"></i>
+                                <span>Tive dúvida, falar com atendente no WhatsApp</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rodapé de suporte rápido -->
+                <div class="text-center pt-2 border-t border-slate-200">
+                    <p class="text-xs text-slate-500">
+                        Dúvidas na instalação? <a href="https://wa.me/5511954802338?text=Olá,%20preciso%20de%20suporte%20com%20o%20aplicativo." target="_blank" class="text-blue-600 font-semibold hover:underline">Chamar suporte direto</a>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+        <p>&copy; 2026 Catálogo e Pedidos Friboi - Todos os direitos reservados. Distribuição Autorizada B2B.</p>
+    </footer>
+
+    <script>
+        // Função que simula o download e expande a aba inteligente na mesma tela
+        function iniciarDownloadInteligente() {
+            const btn = document.getElementById('btnDownload');
+            const progressoBox = document.getElementById('progressoBox');
+            const barra = document.getElementById('barraProgresso');
+            const porcentagem = document.getElementById('porcentagemTexto');
+            const statusTexto = document.getElementById('statusDownloadTexto');
+            const guiaExpandido = document.getElementById('guiaExpandido');
+
+            // Desativa botão temporariamente durante o progresso
+            btn.classList.add('opacity-70', 'pointer-events-none');
+            progressoBox.classList.remove('hidden');
+            guiaExpandido.classList.add('hidden'); // Esconde enquanto baixa
+
+            let progresso = 0;
+            const intervalo = setInterval(() => {
+                progresso += Math.floor(Math.random() * 25) + 15;
+                if (progresso >= 100) {
+                    progresso = 100;
+                    clearInterval(intervalo);
+                    
+                    setTimeout(() => {
+                        progressoBox.classList.add('hidden');
+                        btn.classList.remove('opacity-70', 'pointer-events-none');
+                        // Expande a aba inteligente dentro da mesma tela com destaque total
+                        guiaExpandido.classList.remove('hidden');
+                        guiaExpandido.scrollIntoView({ behavior: 'smooth' });
+                    }, 400);
+                }
+                barra.style.width = progresso + '%';
+                porcentagem.textContent = progresso + '%';
+                if (progresso > 40 && progresso < 90) {
+                    statusTexto.textContent = "Baixando pacotes do app e tabela CNPJ...";
+                } else if (progresso >= 90) {
+                    statusTexto.textContent = "Finalizando gerador de APK...";
+                }
+            }, 250);
+        }
+    </script>
+</body>
+</html>
